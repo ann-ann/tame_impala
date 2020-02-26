@@ -11,8 +11,6 @@ Gem::Specification.new do |spec|
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/ann-ann/tame_impala"
 
@@ -24,4 +22,11 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_dependency('rake')
+  spec.add_dependency('rspec')
+  spec.add_dependency('nokogiri')
+  spec.add_dependency('ruby-readability')
+  spec.add_dependency('concurrent-ruby')
+  spec.add_development_dependency('pry')
 end

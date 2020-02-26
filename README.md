@@ -1,8 +1,6 @@
 # TameImpala
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/tame_impala`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem fetches posts/articles from an URL. You can use it either as a library or console app.
 
 ## Installation
 
@@ -22,18 +20,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+You can run this gem in you terminal:
+
+```bash
+tame_impala 'https://blogs.dropbox.com/tech/'
+```
+
+Or use it as a library:
+
+```ruby
+TameImpala.crawl_blogposts(url: 'https://blogs.dropbox.com/tech/', last: 1)
+```
+
+Argument ```last``` is optional, it determines how many articles to fetch and it defaults to 10 it's maximum(for now).
 
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+While in development, it's convenient to run it from your terminal:
+
+```bash
+./exe/tame_impala 'https://blogs.dropbox.com/tech/'
+```
 
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/tame_impala. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [code of conduct](https://github.com/[USERNAME]/tame_impala/blob/master/CODE_OF_CONDUCT.md).
-
 
 ## License
 
