@@ -1,5 +1,15 @@
 require "bundler/setup"
 require "tame_impala"
+require "vcr"
+require "webmock/rspec"
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'spec/vcr'
+  c.hook_into :webmock
+  c.configure_rspec_metadata!
+end
+
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
