@@ -5,4 +5,4 @@ $LOAD_PATH.unshift(File.expand_path('../lib', __dir__))
 
 require 'tame_impala'
 
-puts TameImpala.crawl_blogposts(url: ARGV[0], last: ARGV[1].to_i)
+puts TameImpala.fetch_posts(url: ARGV[0], last: ARGV[1].to_i)

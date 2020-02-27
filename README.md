@@ -20,16 +20,10 @@ Or install it yourself as:
 
 ## Usage
 
-You can run this gem in you terminal:
-
-```bash
-tame_impala 'https://blogs.dropbox.com/tech/'
-```
-
-Or use it as a library:
+You can run this gem as a library:
 
 ```ruby
-TameImpala.crawl_blogposts(url: 'https://blogs.dropbox.com/tech/', last: 1)
+TameImpala.fetch_posts(url: 'https://blogs.dropbox.com/tech/', last: 1)
 ```
 
 Argument ```last``` is optional, it determines how many articles to fetch and it defaults to 10 it's maximum(for now).
@@ -41,7 +35,7 @@ After checking out the repo, run `bin/setup` to install dependencies. Then, run 
 While in development, it's convenient to run it from your terminal:
 
 ```bash
-./exe/tame_impala 'https://blogs.dropbox.com/tech/'
+./exe/tame_impala 'https://blogs.dropbox.com/tech/' 1
 ```
 
 ## Contributing
