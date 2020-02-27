@@ -26,10 +26,11 @@ class ImpalaCrawler
   end
 
   private
+
   def set_feed_link
     blog_page = Nokogiri::HTML(URI.open(@url))
 
-    @feed_link = blog_page.css(FEED_LINK_PATH).map{ |link| link[:href]}.first
+    @feed_link = blog_page.css(FEED_LINK_PATH).map { |link| link[:href] }.first
     # If none found, raise.
     raise FeedNotFoundError.new('Could not find RSS or ATOM feed') unless @feed_link
   end
@@ -52,11 +53,13 @@ class ImpalaCrawler
   end
 
   def feed_item_link(item)
-    item.link.kind_of?(String) ? item.link : item.link.href
+    item.link.is_a?(String) ? item.link : item.link.href
   end
 
   def clean_content(raw_html)
-    html = raw_html.encode('UTF-8', invalid: :replace, undef: :replace, replace: '', universal_newline: true).gsub(/\P{ASCII}/, '')
+    html = raw_html
+      .encode('UTF-8', invalid: :replace, undef: :replace, replace: '', universal_newline: true)
+      .gsub(/\P{ASCII}/, '')
     parser = Nokogiri::HTML(html, nil, Encoding::UTF_8.to_s)
     parser.xpath('//script')&.remove
     parser.xpath('//style')&.remove

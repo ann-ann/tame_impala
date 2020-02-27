@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 RSpec.describe TameImpala do
   let(:rss_client) { ImpalaCrawler.new('https://blogs.dropbox.com/tech/', 10) }
   let(:atom_client) { ImpalaCrawler.new('https://githubengineering.com/', 3) }
   let(:no_client) { ImpalaCrawler.new('https://google.com', 1) }
 
-  it "has a version number" do
+  it 'has a version number' do
     expect(TameImpala::VERSION).not_to be nil
   end
 
@@ -34,7 +36,7 @@ RSpec.describe TameImpala do
 
     it 'raises error if no rss/atom link found' do
       VCR.use_cassette('no_blog') do
-        expect{ no_client.crawl_blogposts }
+        expect { no_client.crawl_blogposts }
           .to raise_error(ImpalaCrawler::FeedNotFoundError, 'Could not find RSS or ATOM feed')
       end
     end
