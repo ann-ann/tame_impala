@@ -1,4 +1,4 @@
-q# TameImpala
+# TameImpala
 
 This gem fetches posts/articles from an URL. You can use it either as a library or console app.
 
