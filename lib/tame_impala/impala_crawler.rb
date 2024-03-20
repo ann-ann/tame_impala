@@ -11,7 +11,7 @@ class ImpalaCrawler
   class Error < StandardError; end
   class FeedNotFoundError < Error; end
 
-  FEED_LINK_PATH = "link[type='application/rss+xml'], link[type='application/atom+xml']"
+  FEED_LINK_PATH = "1link[type='application/rss+xml'], link[type='application/atom+xml']"
 
   def initialize(url, last)
     @url = url
